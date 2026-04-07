@@ -13,7 +13,7 @@
 ### Features
 
 - **Complete SiYuan API Coverage** - 46 tools covering notebooks, documents, blocks, SQL, files, templates, and more
-- **Cloud Native Support** - Full support for SiYuan Cloud (`note.uuxj.com`) and self-hosted instances
+- **Cloud Native Support** - Full support for SiYuan Cloud (`your-cloud.com`) and self-hosted instances
 - **Clean JSON-RPC Output** - No debug logs contaminating stdout, production-ready
 - **Structured Error Handling** - Clear error messages with API codes and endpoints
 - **Bilingual Documentation** - All tool descriptions in Chinese and English
@@ -44,7 +44,7 @@ npx siyuan-mcp-plus
 **For SiYuan Cloud / 思源云配置:**
 
 ```bash
-SIYUAN_URL=https://note.uuxj.com SIYUAN_TOKEN=your_token siyuan-mcp-plus
+SIYUAN_URL=https://your-cloud.com SIYUAN_TOKEN=your_token siyuan-mcp-plus
 ```
 
 **For Local Instance / 本地实例配置:**
@@ -79,7 +79,7 @@ SIYUAN_TOKEN=your_local_token siyuan-mcp-plus
     "siyuan": {
       "command": "siyuan-mcp-plus",
       "env": {
-        "SIYUAN_URL": "https://note.uuxj.com",
+        "SIYUAN_URL": "https://your-cloud.com",
         "SIYUAN_TOKEN": "your_token_here"
       }
     }
@@ -95,7 +95,7 @@ SIYUAN_TOKEN=your_local_token siyuan-mcp-plus
     "command": "npx",
     "args": ["-y", "siyuan-mcp-plus"],
     "env": {
-      "SIYUAN_URL": "https://note.uuxj.com",
+      "SIYUAN_URL": "https://your-cloud.com",
       "SIYUAN_TOKEN": "your_token_here"
     }
   }
@@ -147,7 +147,7 @@ MIT
 ### 特性
 
 - **完整 API 覆盖** - 46 个工具，覆盖笔记本、文档、块、SQL、文件、模板等
-- **云端原生支持** - 完美支持思源云（`note.uuxj.com`）和自托管实例
+- **云端原生支持** - 完美支持思源云（`your-cloud.com`）和自托管实例
 - **干净的 JSON-RPC 输出** - 无调试日志污染 stdout，生产环境可用
 - **结构化错误处理** - 清晰的错误信息，包含 API 状态码和端点
 - **双语文档** - 所有工具描述均有中英文
@@ -178,7 +178,7 @@ npx siyuan-mcp-plus
 **思源云配置：**
 
 ```bash
-SIYUAN_URL=https://note.uuxj.com SIYUAN_TOKEN=你的令牌 siyuan-mcp-plus
+SIYUAN_URL=https://your-cloud.com SIYUAN_TOKEN=你的令牌 siyuan-mcp-plus
 ```
 
 **本地实例配置：**
@@ -213,7 +213,7 @@ SIYUAN_TOKEN=你的本地令牌 siyuan-mcp-plus
     "siyuan": {
       "command": "siyuan-mcp-plus",
       "env": {
-        "SIYUAN_URL": "https://note.uuxj.com",
+        "SIYUAN_URL": "https://your-cloud.com",
         "SIYUAN_TOKEN": "你的令牌"
       }
     }
@@ -229,7 +229,7 @@ SIYUAN_TOKEN=你的本地令牌 siyuan-mcp-plus
     "command": "npx",
     "args": ["-y", "siyuan-mcp-plus"],
     "env": {
-      "SIYUAN_URL": "https://note.uuxj.com",
+      "SIYUAN_URL": "https://your-cloud.com",
       "SIYUAN_TOKEN": "你的令牌"
     }
   }

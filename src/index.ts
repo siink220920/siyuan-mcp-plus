@@ -17,6 +17,19 @@ import { toolSchemas } from './tools/index.js';
 const SIYUAN_URL = process.env.SIYUAN_URL || process.env.SIYUAN_HOST || 'http://127.0.0.1:6806';
 const SIYUAN_TOKEN = process.env.SIYUAN_TOKEN || '';
 
+// ==================== Environment Validation / 环境变量验证 ====================
+
+if (!SIYUAN_TOKEN) {
+  process.stderr.write('[siyuan-mcp-plus] Error: SIYUAN_TOKEN environment variable is required\n');
+  process.exit(1);
+}
+
+const URL_PARSED = new URL(SIYUAN_URL);
+if (!['http:', 'https:'].includes(URL_PARSED.protocol)) {
+  process.stderr.write('[siyuan-mcp-plus] Error: SIYUAN_URL must use http or https protocol\n');
+  process.exit(1);
+}
+
 const server = new Server(
   {
     name: 'siyuan-mcp-plus',
