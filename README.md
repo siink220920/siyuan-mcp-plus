@@ -12,7 +12,7 @@
 
 ### Features
 
-- **Complete SiYuan API Coverage** - 46 tools covering notebooks, documents, blocks, SQL, files, templates, and more
+- **Complete SiYuan API Coverage** - 52 tools covering notebooks, documents, blocks, SQL, files, templates, and more
 - **Cloud Native Support** - Full support for SiYuan Cloud (`your-cloud.com`) and self-hosted instances
 - **Clean JSON-RPC Output** - No debug logs contaminating stdout, production-ready
 - **Structured Error Handling** - Clear error messages with API codes and endpoints
@@ -52,6 +52,22 @@ SIYUAN_URL=https://your-cloud.com SIYUAN_TOKEN=your_token siyuan-mcp-plus
 ```bash
 SIYUAN_TOKEN=your_local_token siyuan-mcp-plus
 ```
+
+
+### API Endpoint Notes
+
+This server uses the **official SiYuan Cloud API** endpoints. Some common mistakes in third-party implementations are corrected here:
+
+| Category | Common Mistake | Correct Endpoint |
+|----------|---------------|------------------|
+| Block Attributes | `/api/filetree/getBlockAttrs` | `/api/attr/getBlockAttrs` |
+| Block Attributes | `/api/filetree/setBlockAttrs` | `/api/attr/setBlockAttrs` |
+| Notifications | `/api/notify/pushMsg` | `/api/notification/pushMsg` |
+| Notifications | `/api/notify/pushErrMsg` | `/api/notification/pushErrMsg` |
+| Template | `/api/template/renderTemplate` | `/api/template/render` |
+| Pandoc Export | `/api/export/pandocConvert` | `/api/convert/pandoc` |
+| System | `/api/system/getBootProgress` | `/api/system/bootProgress` |
+| File | `/api/file森林公园/*` | `/api/file/*` |
 
 ### Tools Overview (52 tools)
 
@@ -238,6 +254,22 @@ SIYUAN_URL=https://your-cloud.com SIYUAN_TOKEN=你的令牌 siyuan-mcp-plus
 ```bash
 SIYUAN_TOKEN=你的本地令牌 siyuan-mcp-plus
 ```
+
+
+### API 端点说明
+
+本服务使用**官方思源云 API** 端点，已修正第三方实现中的常见错误：
+
+| 类别 | 常见错误 | 正确端点 |
+|------|---------|---------|
+| 块属性 | `/api/filetree/getBlockAttrs` | `/api/attr/getBlockAttrs` |
+| 块属性 | `/api/filetree/setBlockAttrs` | `/api/attr/setBlockAttrs` |
+| 通知 | `/api/notify/pushMsg` | `/api/notification/pushMsg` |
+| 通知 | `/api/notify/pushErrMsg` | `/api/notification/pushErrMsg` |
+| 模板 | `/api/template/renderTemplate` | `/api/template/render` |
+| Pandoc 导出 | `/api/export/pandocConvert` | `/api/convert/pandoc` |
+| 系统 | `/api/system/getBootProgress` | `/api/system/bootProgress` |
+| 文件 | `/api/file森林公园/*` | `/api/file/*` |
 
 ### 工具概览（52 个工具）
 
