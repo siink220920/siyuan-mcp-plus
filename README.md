@@ -56,10 +56,12 @@ SIYUAN_TOKEN=your_local_token siyuan-mcp-plus
 
 ### API Endpoint Notes
 
-This server uses the **official SiYuan Cloud API** endpoints. Some common mistakes in third-party implementations are corrected here:
+This server uses the **official SiYuan API** endpoints. Reference: [SiYuan Official API](https://github.com/siyuan-note/siyuan/blob/master/API_zh_CN.md).
 
-| Category | Common Mistake | Correct Endpoint |
-|----------|---------------|------------------|
+Some common mistakes in third-party implementations are corrected here:
+
+| Category | Wrong (Common Mistake) | Correct (Official) |
+|----------|----------------------|-------------------|
 | Block Attributes | `/api/filetree/getBlockAttrs` | `/api/attr/getBlockAttrs` |
 | Block Attributes | `/api/filetree/setBlockAttrs` | `/api/attr/setBlockAttrs` |
 | Notifications | `/api/notify/pushMsg` | `/api/notification/pushMsg` |
@@ -68,6 +70,8 @@ This server uses the **official SiYuan Cloud API** endpoints. Some common mistak
 | Pandoc Export | `/api/export/pandocConvert` | `/api/convert/pandoc` |
 | System | `/api/system/getBootProgress` | `/api/system/bootProgress` |
 | File | `/api/file森林公园/*` | `/api/file/*` |
+
+All other endpoints follow the official API specification exactly.
 
 ### Tools Overview (52 tools)
 
@@ -258,10 +262,12 @@ SIYUAN_TOKEN=你的本地令牌 siyuan-mcp-plus
 
 ### API 端点说明
 
-本服务使用**官方思源云 API** 端点，已修正第三方实现中的常见错误：
+本服务使用**官方思源 API** 端点。参考：[思源官方 API 文档](https://github.com/siyuan-note/siyuan/blob/master/API_zh_CN.md)。
 
-| 类别 | 常见错误 | 正确端点 |
-|------|---------|---------|
+已修正第三方实现中的常见错误：
+
+| 类别 | 错误（常见错误） | 正确（官方） |
+|------|----------------|------------|
 | 块属性 | `/api/filetree/getBlockAttrs` | `/api/attr/getBlockAttrs` |
 | 块属性 | `/api/filetree/setBlockAttrs` | `/api/attr/setBlockAttrs` |
 | 通知 | `/api/notify/pushMsg` | `/api/notification/pushMsg` |
@@ -270,6 +276,8 @@ SIYUAN_TOKEN=你的本地令牌 siyuan-mcp-plus
 | Pandoc 导出 | `/api/export/pandocConvert` | `/api/convert/pandoc` |
 | 系统 | `/api/system/getBootProgress` | `/api/system/bootProgress` |
 | 文件 | `/api/file森林公园/*` | `/api/file/*` |
+
+其他所有端点均严格遵循官方 API 规范。
 
 ### 工具概览（52 个工具）
 
