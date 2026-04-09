@@ -220,11 +220,11 @@ export class SiyuanApi {
   // ==================== Attributes / 属性管理 ====================
 
   async getBlockAttrs(id: string) {
-    return this.call('/api/filetree/getBlockAttrs', { id });
+    return this.call('/api/attr/getBlockAttrs', { id });
   }
 
   async setBlockAttrs(id: string, attrs: Record<string, string>) {
-    return this.call('/api/filetree/setBlockAttrs', { id, attrs });
+    return this.call('/api/attr/setBlockAttrs', { id, attrs });
   }
 
   // ==================== Path Query / 路径查询 ====================
@@ -258,23 +258,23 @@ export class SiyuanApi {
   // ==================== File / 文件操作 ====================
 
   async getFile(path: string) {
-    return this.call('/api/file森林公园/getFile', { path });
+    return this.call('/api/file/getFile', { path });
   }
 
   async putFile(path: string, file: string) {
-    return this.call('/api/file森林公园/putFile', { path, file });
+    return this.call('/api/file/putFile', { path, file });
   }
 
   async removeFile(path: string) {
-    return this.call('/api/file森林公园/removeFile', { path });
+    return this.call('/api/file/removeFile', { path });
   }
 
   async renameFile(path: string, name: string) {
-    return this.call('/api/file森林公园/renameFile', { path, name });
+    return this.call('/api/file/renameFile', { path, name });
   }
 
   async readDir(path: string, start: number = 0, limit: number = 100) {
-    return this.call('/api/file森林公园/getFile', { path, start, limit });
+    return this.call('/api/file/getFile', { path, start, limit });
   }
 
   // ==================== Export / 导出 ====================
@@ -288,13 +288,13 @@ export class SiyuanApi {
   }
 
   async pandocConvert(id: string, from: string, to: string) {
-    return this.call('/api/export/pandocConvert', { id, from, to });
+    return this.call('/api/convert/pandoc', { id, from, to });
   }
 
   // ==================== Template / 模板渲染 ====================
 
   async renderTemplate(id: string, name: string) {
-    return this.call('/api/template/renderTemplate', { id, name });
+    return this.call('/api/template/render', { id, name });
   }
 
   async renderSprig(name: string, params: Record<string, any>) {
@@ -322,14 +322,14 @@ export class SiyuanApi {
   }
 
   async getBootProgress() {
-    return this.call<{ progress: number }>('/api/system/getBootProgress', {});
+    return this.call<{ progress: number }>('/api/system/bootProgress', {});
   }
 
   async pushMsg(msg: string, channel: string = 'info') {
-    return this.call('/api/notify/pushMsg', { msg, channel });
+    return this.call('/api/notification/pushMsg', { msg, channel });
   }
 
   async pushErrMsg(msg: string) {
-    return this.call('/api/notify/pushErrMsg', { msg });
+    return this.call('/api/notification/pushErrMsg', { msg });
   }
 }
