@@ -1,7 +1,7 @@
 {
   "name": "siyuan-mcp-plus",
-  "version": "1.0.3",
-  "description": "Enhanced SiYuan Note MCP Server with Cloud Support - 增强版思源笔记 MCP 服务，支持云端 API",
+  "version": "1.0.5",
+  "description": "Enhanced SiYuan Note MCP Server with Cloud Support - \u589e\u5f3a\u7248\u601d\u6e90\u7b14\u8bb0 MCP \u670d\u52a1\uff0c\u652f\u6301\u4e91\u7aef API",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
