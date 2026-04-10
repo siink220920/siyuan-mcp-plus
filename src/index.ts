@@ -138,17 +138,23 @@ async function handleTool(name: string, args: Record<string, any>): Promise<{ co
 
       // ==================== Block / 块 ====================
       case 'insert_block': {
-        const result = await api.insertBlock(args.dataType, args.data, args.parentID, args.prevID) as any;
+        const dataType = args.dataType || (args.markdown ? 'markdown' : 'dom');
+        const data = args.markdown || args.data;
+        const result = await api.insertBlock(dataType, data, args.parentID, args.prevID) as any;
         return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
       }
 
       case 'prepend_block': {
-        const result = await api.prependBlock(args.dataType, args.data, args.parentID) as any;
+        const dataType = args.dataType || (args.markdown ? 'markdown' : 'dom');
+        const data = args.markdown || args.data;
+        const result = await api.prependBlock(dataType, data, args.parentID) as any;
         return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
       }
 
       case 'append_block': {
-        const result = await api.appendBlock(args.dataType, args.data, args.parentID) as any;
+        const dataType = args.dataType || (args.markdown ? 'markdown' : 'dom');
+        const data = args.markdown || args.data;
+        const result = await api.appendBlock(dataType, data, args.parentID) as any;
         return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
       }
 

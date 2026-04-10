@@ -226,50 +226,53 @@ export const toolSchemas = {
     insert_block: {
         name: 'insert_block',
         description: {
-            zh: '在指定位置插入块',
-            en: 'Insert a block at the specified position',
+            zh: '在指定位置插入块（支持 markdown 自动识别）',
+            en: 'Insert a block at the specified position (supports auto markdown detection)',
         },
         inputSchema: {
             type: 'object',
             properties: {
-                dataType: { type: 'string', description: '数据类型，如 "markdown"' },
-                data: { type: 'string', description: '块内容' },
+                dataType: { type: 'string', description: '数据类型（可选，默认自动检测：markdown 或 dom）' },
+                markdown: { type: 'string', description: 'Markdown 内容（可选，优先级高于 data，自动设 dataType=markdown）' },
+                data: { type: 'string', description: '块内容（当 markdown 未提供时使用）' },
                 parentID: { type: 'string', description: '父块 ID' },
                 prevID: { type: 'string', description: '前一个块 ID（可选）' },
             },
-            required: ['dataType', 'data', 'parentID'],
+            required: ['parentID'],
         },
     },
     prepend_block: {
         name: 'prepend_block',
         description: {
-            zh: '在父块内最前面插入块',
-            en: 'Insert a block at the beginning of parent block',
+            zh: '在父块内最前面插入块（支持 markdown 自动识别）',
+            en: 'Insert a block at the beginning of parent block (supports auto markdown detection)',
         },
         inputSchema: {
             type: 'object',
             properties: {
-                dataType: { type: 'string', description: '数据类型' },
+                dataType: { type: 'string', description: '数据类型（可选，默认自动检测）' },
+                markdown: { type: 'string', description: 'Markdown 内容（可选，优先级高于 data）' },
                 data: { type: 'string', description: '块内容' },
                 parentID: { type: 'string', description: '父块 ID' },
             },
-            required: ['dataType', 'data', 'parentID'],
+            required: ['parentID'],
         },
     },
     append_block: {
         name: 'append_block',
         description: {
-            zh: '在父块内最后面追加块',
-            en: 'Append a block at the end of parent block',
+            zh: '在父块内最后面追加块（支持 markdown 自动识别）',
+            en: 'Append a block at the end of parent block (supports auto markdown detection)',
         },
         inputSchema: {
             type: 'object',
             properties: {
-                dataType: { type: 'string', description: '数据类型' },
+                dataType: { type: 'string', description: '数据类型（可选，默认自动检测）' },
+                markdown: { type: 'string', description: 'Markdown 内容（可选，优先级高于 data，自动设 dataType=markdown）' },
                 data: { type: 'string', description: '块内容' },
                 parentID: { type: 'string', description: '父块 ID' },
             },
-            required: ['dataType', 'data', 'parentID'],
+            required: ['parentID'],
         },
     },
     update_block: {

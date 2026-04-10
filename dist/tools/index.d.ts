@@ -301,19 +301,23 @@ export declare const toolSchemas: {
     readonly insert_block: {
         readonly name: "insert_block";
         readonly description: {
-            readonly zh: "在指定位置插入块";
-            readonly en: "Insert a block at the specified position";
+            readonly zh: "在指定位置插入块（支持 markdown 自动识别）";
+            readonly en: "Insert a block at the specified position (supports auto markdown detection)";
         };
         readonly inputSchema: {
             readonly type: "object";
             readonly properties: {
                 readonly dataType: {
                     readonly type: "string";
-                    readonly description: "数据类型，如 \"markdown\"";
+                    readonly description: "数据类型（可选，默认自动检测：markdown 或 dom）";
+                };
+                readonly markdown: {
+                    readonly type: "string";
+                    readonly description: "Markdown 内容（可选，优先级高于 data，自动设 dataType=markdown）";
                 };
                 readonly data: {
                     readonly type: "string";
-                    readonly description: "块内容";
+                    readonly description: "块内容（当 markdown 未提供时使用）";
                 };
                 readonly parentID: {
                     readonly type: "string";
@@ -324,21 +328,25 @@ export declare const toolSchemas: {
                     readonly description: "前一个块 ID（可选）";
                 };
             };
-            readonly required: readonly ["dataType", "data", "parentID"];
+            readonly required: readonly ["parentID"];
         };
     };
     readonly prepend_block: {
         readonly name: "prepend_block";
         readonly description: {
-            readonly zh: "在父块内最前面插入块";
-            readonly en: "Insert a block at the beginning of parent block";
+            readonly zh: "在父块内最前面插入块（支持 markdown 自动识别）";
+            readonly en: "Insert a block at the beginning of parent block (supports auto markdown detection)";
         };
         readonly inputSchema: {
             readonly type: "object";
             readonly properties: {
                 readonly dataType: {
                     readonly type: "string";
-                    readonly description: "数据类型";
+                    readonly description: "数据类型（可选，默认自动检测）";
+                };
+                readonly markdown: {
+                    readonly type: "string";
+                    readonly description: "Markdown 内容（可选，优先级高于 data）";
                 };
                 readonly data: {
                     readonly type: "string";
@@ -349,21 +357,25 @@ export declare const toolSchemas: {
                     readonly description: "父块 ID";
                 };
             };
-            readonly required: readonly ["dataType", "data", "parentID"];
+            readonly required: readonly ["parentID"];
         };
     };
     readonly append_block: {
         readonly name: "append_block";
         readonly description: {
-            readonly zh: "在父块内最后面追加块";
-            readonly en: "Append a block at the end of parent block";
+            readonly zh: "在父块内最后面追加块（支持 markdown 自动识别）";
+            readonly en: "Append a block at the end of parent block (supports auto markdown detection)";
         };
         readonly inputSchema: {
             readonly type: "object";
             readonly properties: {
                 readonly dataType: {
                     readonly type: "string";
-                    readonly description: "数据类型";
+                    readonly description: "数据类型（可选，默认自动检测）";
+                };
+                readonly markdown: {
+                    readonly type: "string";
+                    readonly description: "Markdown 内容（可选，优先级高于 data，自动设 dataType=markdown）";
                 };
                 readonly data: {
                     readonly type: "string";
@@ -374,7 +386,7 @@ export declare const toolSchemas: {
                     readonly description: "父块 ID";
                 };
             };
-            readonly required: readonly ["dataType", "data", "parentID"];
+            readonly required: readonly ["parentID"];
         };
     };
     readonly update_block: {
