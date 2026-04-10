@@ -19,6 +19,7 @@
 - **Bilingual Documentation** - All tool descriptions in Chinese and English
 - **Path Normalization** - Automatic `.md` suffix handling for document paths
 - **Icon Support** - Full support for notebook emoji icons via Unicode code points
+- **Auto Markdown Detection** - Block insert/prepend/append tools automatically detect markdown content
 
 ### Installation
 
@@ -95,9 +96,9 @@ All other endpoints follow the official API specification exactly.
 | `move_docs` | Move documents to another notebook or folder |
 | `move_docs_by_id` | Move documents by ID to another notebook |
 | **Block / 块级操作** | |
-| `insert_block` | Insert a block at the specified position |
-| `prepend_block` | Insert a block at the beginning of parent block |
-| `append_block` | Append a block at the end of parent block |
+| `insert_block` | Insert a block at the specified position (auto markdown detection) |
+| `prepend_block` | Insert a block at the beginning of parent block (auto markdown detection) |
+| `append_block` | Append a block at the end of parent block (auto markdown detection) |
 | `update_block` | Update block content |
 | `delete_block` | Delete a block |
 | `move_block` | Move a block to a new position |
@@ -301,9 +302,9 @@ SIYUAN_TOKEN=你的本地令牌 siyuan-mcp-plus
 | `move_docs` | 移动文档到其他笔记本或文件夹 |
 | `move_docs_by_id` | 通过 ID 移动文档到其他笔记本 |
 | **Block / 块级操作** | |
-| `insert_block` | 在指定位置插入块 |
-| `prepend_block` | 在父块内最前面插入块 |
-| `append_block` | 在父块内最后面追加块 |
+| `insert_block` | 在指定位置插入块（支持 markdown 自动识别） |
+| `prepend_block` | 在父块内最前面插入块（支持 markdown 自动识别） |
+| `append_block` | 在父块内最后面追加块（支持 markdown 自动识别） |
 | `update_block` | 更新块内容 |
 | `delete_block` | 删除块 |
 | `move_block` | 移动块到新位置 |
@@ -346,6 +347,20 @@ SIYUAN_TOKEN=你的本地令牌 siyuan-mcp-plus
 | `get_workspace_info` | 获取工作空间和连接信息 |
 | `push_msg` | 推送通知消息 |
 | `push_err_msg` | 推送错误消息通知 |
+
+
+### Changelog
+
+#### v1.0.5 (2026-04-10)
+- **Block tools auto markdown detection**: `insert_block`, `prepend_block`, `append_block` now accept a `markdown` parameter. When provided, `dataType` is automatically set to `"markdown"`. This fixes issues when calling via mcporter CLI where `dataType` was required but not easily passable.
+
+#### v1.0.4 (2026-04-07)
+- Fixed 6 API endpoint errors (attr, notification, template/render, convert/pandoc, system/bootProgress, file path)
+
+#### v1.0.2 (2026-03-27)
+- Fixed shebang in dist/index.js for global CLI usage
+
+---
 
 ### 开发
 
