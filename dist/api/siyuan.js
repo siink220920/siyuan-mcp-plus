@@ -135,7 +135,7 @@ export class SiyuanApi {
         return this.call('/api/block/moveBlock', { id, targetID, targetBlockID, targetIndex });
     }
     async getBlockKramdown(id) {
-        return this.call(`/api/block/getBlockKramdown?notebook=&id=${id}`, {});
+        return this.call('/api/block/getBlockKramdown', { id });
     }
     async getChildBlocks(id) {
         return this.call('/api/block/getChildBlocks', { id });

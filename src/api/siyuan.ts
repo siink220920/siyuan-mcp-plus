@@ -196,7 +196,7 @@ export class SiyuanApi {
   }
 
   async getBlockKramdown(id: string) {
-    return this.call<{ id: string; kramdown: string }>(`/api/block/getBlockKramdown?notebook=&id=${id}`, {});
+    return this.call<{ id: string; kramdown: string }>('/api/block/getBlockKramdown', { id });
   }
 
   async getChildBlocks(id: string) {
