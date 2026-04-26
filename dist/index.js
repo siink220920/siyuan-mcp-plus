@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * SiYuan MCP Server Plus - Main Entry
  * 思源笔记 MCP 服务增强版 - 主入口
@@ -91,7 +92,7 @@ async function handleTool(name, args) {
             }
             case 'remove_doc_by_id': {
                 // 需要 notebook 参数
-                const notebook = args.notebook;
+                let notebook = args.notebook;
                 if (!notebook) {
                     // 尝试通过 getPathById 获取
                     const pathInfo = await api.getPathById(args.id);
