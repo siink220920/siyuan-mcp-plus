@@ -120,8 +120,19 @@ async function handleTool(name: string, args: Record<string, any>): Promise<{ co
       }
 
       case 'remove_doc_by_id': {
-        await api.removeDocById(args.id);
-        return { content: [{ type: 'text', text: `Document permanently removed: ${args.id}` }] };
+        // 需要 notebook 参数
+        let notebook = args.notebook;
+        if (!notebook) {
+          // 尝试通过 getPathById 获取
+          const pathInfo = await api.getPathById(args.id);
+          notebook = pathInfo?.notebook;
+        }
+        if (!notebook) {
+          return { content: [{ type: 'text', text: `Error: notebook required for remove_doc_by_id. Provide it explicitly or use getPathById first.` }] };
+        }
+        await api.removeDocById(args.id, notebook);
+        await api.flushTransaction();
+        return { content: [{ type: 'text', text: `Document removed: ${args.id} from ${notebook}` }] };
       }
 
       case 'move_docs': {

@@ -49,7 +49,7 @@ export declare class SiyuanApi {
     renameDoc(notebook: string, path: string, title: string): Promise<any>;
     renameDocById(id: string, title: string): Promise<any>;
     removeDoc(notebook: string, path: string): Promise<any>;
-    removeDocById(id: string): Promise<any>;
+    removeDocById(id: string, notebook?: string): Promise<any>;
     moveDocs(fromPaths: string[], toNotebook: string, toPath: string): Promise<any>;
     moveDocsById(fromIDs: string[], toID: string): Promise<any>;
     insertBlock(dataType: string, data: string, parentID: string, prevID?: string): Promise<any>;

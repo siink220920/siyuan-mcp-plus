@@ -157,8 +157,8 @@ export class SiyuanApi {
     return this.call('/api/filetree/removeDoc', { notebook, path });
   }
 
-  async removeDocById(id: string) {
-    return this.call('/api/filetree/removeDocByID', { id });
+  async removeDocById(id: string, notebook?: string) {
+    return this.call('/api/filetree/removeDocByID', { id, notebook });
   }
 
   async moveDocs(fromPaths: string[], toNotebook: string, toPath: string) {
